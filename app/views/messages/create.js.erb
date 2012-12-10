@@ -1,0 +1,4 @@
+<% publish_to "/itayschat" do %>
+  $("#chat_wrapper").append('<%= j "<div class='message'> #{@message.message} </div>".html_safe %>');
+	$("#message_message").val("");
+<% end %>

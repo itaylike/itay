@@ -1,0 +1,19 @@
+<%= subscribe_to "/itayschat" %>
+<%- model_class = Message -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+
+<h1 id="h1">Hello <%= @current_user.email %></h1>
+<div id="chat_wrapper">
+	<% @msgs.each do |m| %>
+		<div class="message"> <%= m.message  %></div>
+	<% end %>
+</div>
+<div class="form-actions">
+	<%= form_for @message, :remote => true , :html => { :class => 'form-horizontal' }  do |f| %>
+ 	<%= f.text_field :message , :class => 'control-label' %>
+	 	<%= f.submit "go", :class => 'btn btn-primary'  %>
+	<% end %>
+</div>
+
